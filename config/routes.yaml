@@ -1,0 +1,36 @@
+
+controllers:
+    resource: routing.controllers
+about:
+
+   path: /about
+
+   controller: App\Controller\DefaultController::about
+
+welcome:
+    path: /welcome
+    controller: App\Controller\DefaultController::welcome
+
+contact:
+    path: /contact
+    controller: App\Controller\DefaultController::contact
+
+hello_name:
+    path: /hello/{name}
+    controller: App\Controller\DefaultController::helloNameAction
+
+increment:
+    path: /increment/{digit}
+    controller: App\Controller\DefaultController::incrementAction
+    requirements:
+        digit: '\d'
+
+greeting:
+    path: /{salutation}/{name}
+    controller: App\Controller\DefaultController::greetingAction
+    requirements:
+        salutation: 'hello|hi|welcome'
+
+contacts:
+    path: /contacts
+    controller: App\Controller\DefaultController::contactsAction

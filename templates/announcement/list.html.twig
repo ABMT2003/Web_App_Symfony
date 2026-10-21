@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Announcements{% endblock %}
+
+{% block body %}
+    <h1>All announcements</h1>
+    <table border="1" cellpadding="6">
+        <thead>
+            <tr><th>ID</th><th>Message</th><th>Time</th></tr>
+        </thead>
+        <tbody>
+            {% for announcement in announcements %}
+                <tr>
+                    <td><a href="{{ path('show_announcement', {id: announcement.id}) }}">{{ announcement.id }}</a></td>
+                    <td>{{ announcement.message }}</td>
+                    <td>{{ announcement.timestamp|date('Y-m-d H:i:s') }}</td>
+                </tr>
+            {% else %}
+                <tr><td colspan="3">No announcements yet.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
